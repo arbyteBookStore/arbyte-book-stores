@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arbyte Book Store</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+  <style>
+    #toast{
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #16a34a;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 6px;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: 9999;
+}
+
+#toast.show{
+  opacity: 1;
+}
+
+  </style>
+<main id="toast"></main>
+  <header>
+
+
+    <div class="logo-container">
+      <a href="index.html">
+        <img class="logooos" src="./my logo/Untitled-99.png" alt="Ardey Books Logo">
+      </a>
+       <button class="hamburger">☰ Menu</button>
+    </div>
+
+    <div class="nav-right">
+  <input type="text" id="search" placeholder="Search books...">
+  <a href="singINform.html">  <button class="signin">🔑 Sign In</button></a>
+  <!--<a href="#" class="cart-btn">🛒 Cart (<span class="cart-count">0</span>)</a>-->
+
+
+</div>
+    </div>
+ </header>
+   
+ <style>
+  .h{
+    text-align: center;
+  }
+ </style>
+
+
+ <h4 class="h">books page</h4>
+
+  <!-- NAV LINKS -->
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="books.html">Books</a>
+    <a href="it books.html">Info-Technology</a>
+    <a href="about us.html">About Me</a>
+    <a href="comingsoon.html">Coming soon...</a>
+    <a href="#">Others</a>
+    <a href="#">Help</a>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu">
+  <button class="close-menu">×</button> <!-- Close button -->
+  <div class="mobile-links">
+    <a href="index.html">Home</a>
+    <a href="books.html">Books</a>
+    <a href="it books.html">Info-Technology</a>
+    <a href="about us.html">About Me</a>
+    <a href="comingsoon.html">Coming soon...</a>
+    <a href="#">Others</a>
+    <a href="#">Help</a>
+  </div>
+  <input type="text" id="search-mobile" placeholder="Search books...">
+   <a href="singINform.html">  <button class="signin">🔑 Sign In</button></a>
+  <button class="cart">🛒 Cart (<span id="cart-count">0</span>)</button>
+</div>
+
+  
+
+  <!-- WELCOME SECTION -->
+  <section class="welcome-container">
+    <div class="welcome-text">
+      <h1>
+        <span class="weyn">WELCOME TO Arbyte</span> <br>
+        <span class="bookss">BOOK STORE</span>
+      </h1>
+      <p>Discover, Learn and Grow with our collection of programming and tech books.</p>
+      <a href="#" class="main-btn">Learn More...</a>
+    </div>
+  </section>
+
+  <!-- FEATURED BOOKS -->
+  <section class="featured-books">
+    <h2>📚 Featured Books</h2>
+    <div class="book-grid">
+      <div class="book-card">
+        <img src="./photos/cover.jpg" alt="Book 1">
+        <h3>JavaScript Essentials</h3>
+        <p>$19.99</p>
+           <button class="add-cart"
+ onclick="addToCart('javascript Book')">
+  Add to Cart
+</button>
+
+  
+      </div>
+      <div class="book-card">
+        <img src="./photos/pyhthonorg.jpg" alt="Book 2">
+        <h3>Python for Beginners</h3>
+        <p>$24.99</p>
+       <button class="add-cart"
+ onclick="addToCart('python for beginers Book')">
+  Add to Cart
+</button>
+      </div>
+      <div class="book-card">
+        <img src="./photos/html5.jpg" alt="Book 3">
+        <h3>Mastering HTML & CSS</h3>
+        <p>$17.49</p>
+            <button class="add-cart"
+ onclick="addToCart('mastering html & css Book')">
+  Add to Cart
+</button>
+      </div>
+      <div class="book-card">
+        <img src="./photos/the complete.jpg" alt="Book 4">
+        <h3>S Q L</h3>
+        <p>$21.00</p>
+                    <button class="add-cart"
+ onclick="addToCart('SQL the complete refrence Book')">
+  Add to Cart
+</button>
+      </div>
+      <div class="book-card">
+        <img src="./photos/c++.jpg" alt="Book 5">
+        <h3>Learn C++ in 21 Days</h3>
+        <p>$15.99</p>
+                      <button class="add-cart"
+ onclick="addToCart('C++ Book')">
+  Add to Cart
+</button>
+      </div>
+
+      <div class="book-card">
+        <img src="./photos/JAVA.webp" alt="Book 6">
+        <h3>Learn JAVA in 21 days</h3>
+        <p>$20.99</p>
+             <button class="add-cart"
+ onclick="addToCart('JAVA  learn in 21 days  Book')">
+  Add to Cart
+</button>
+      </div>
+      <div class="book-card">
+        <img src="./photos/machinejpeg.jpeg" alt="Book 7">
+        <h3>AI & Machine Learning</h3>
+        <p>$29.99</p>
+       <button class="add-cart"
+ onclick="addToCart('AI & Machine learning Book')">
+  Add to Cart
+</button>
+      </div>
+      <div class="book-card">
+        <img src="./photos/ullman data system.jpg" alt="Book 8">
+        <h3>Database Systems</h3>
+        <p>$22.49</p>
+            <button class="add-cart"
+ onclick="addToCart('database system Book')">
+  Add to Cart
+</button>
+      </div>
+      <div class="book-card">
+        <img src="./photos/IT-ESSENTIALS.jpg" alt="Book 9">
+        <h3>information technology assentials</h3>
+        <p>$20.99</p>
+            <button class="add-cart"
+ onclick="addToCart('information technology assentials Book')">
+  Add to Cart
+</button>
+      </div>
+
+       <div class="book-card">
+        <img src="./photos/images.png" alt="Book 10">
+        <h3>C#</h3>
+        <p>$20.99</p>
+                 <button class="add-cart"
+ onclick="addToCart(' C# Book')">
+  Add to Cart
+</button>
+      </div>
+      <div class="book-card">
+        <img src="./photos/css only.webp" alt="Book 11">
+        <h3>CSS tutorials</h3>
+        <p>$27.99</p>
+          <button class="add-cart"
+ onclick="addToCart('CSS tutorials Book')">
+  Add to Cart
+</button>
+       
+      </div>
+    </div>
+  </section>
+
+ 
+ <footer>
+  <div class="footer-logo">
+    <img class="logooos" src="./my logo/Untitled-99.png" alt="Ardey Books Logo"><br><br><br>
+    
+   <i class="fa-brands fa-facebook social"></i> &nbsp; &nbsp;
+<i class="fa-brands fa-square-instagram social"></i>
+
+  </div>
+
+
+
+  <div class="footer-section">
+    <h3>Quick Links</h3>
+    <ul>
+    <a href="books.html"> <li>Books</li></a> 
+    <a href="it books.html"><li>Info Tech</li></a>   
+    <a href="comingsoon.html"><li>Coming Soon..</li></a>   
+    <a href="help.html"><li>Help</li></a> 
+    </ul>
+  </div>
+
+  <div class="footer-section">
+    <h3>Support</h3>
+    <ul>
+      <a href="contact.html"><li>Contact</li></a>
+     <a href="books.html"><li>Books</li></a> 
+     <a href="comingsoon.html"><li>Coming Soon..</li></a> 
+     <a href="others.html"><li>Others</li></a> 
+    </ul>
+  </div>
+
+  <div class="footer-section">
+    <h3>Contact</h3>
+    <ul>
+      <li>Email: info@arbyte.com</li>
+      <li>Phone: +252 61 9 12 79 78</li>
+      <li>Location: Mogadishu, Somalia</li>
+    </ul>
+  </div>
+</footer>
+
+    
+
+
+<script>
+
+const hamburger = document.querySelector(".hamburger");
+const mobileMenu = document.querySelector(".mobile-menu");
+const closeBtn = document.querySelector(".close-menu");
+
+// Fur & xiro menu marka hamburger la riixo
+hamburger.addEventListener("click", () => {
+  mobileMenu.classList.toggle("open");
+});
+
+// Xiro menu marka close button la riixo
+closeBtn.addEventListener("click", () => {
+  mobileMenu.classList.remove("open");
+});
+</script>
+
+<script>
+
+function normalize(text){
+  return text.toLowerCase();
+}
+
+
+function debounce(fn, delay){
+  let timer;
+  return function(...args){
+    clearTimeout(timer);
+    timer = setTimeout(() => fn.apply(this, args), delay);
+  }
+}
+
+function searchBooks(query) {
+  const q = normalize(query);
+
+
+  const books = document.querySelectorAll('.book-card');
+  
+  books.forEach(book => {
+    const title = book.querySelector('h3').textContent;
+    const price = book.querySelector('p').textContent;
+    const content = title + " " + price;
+
+   
+    if(normalize(content).includes(q)){
+      book.style.display = "block";
+    } else {
+      book.style.display = "none";
+    }
+  });
+}
+
+
+const searchInput = document.getElementById('search');
+const searchMobile = document.getElementById('search-mobile');
+
+
+const debouncedSearch = debounce((e) => {
+  searchBooks(e.target.value);
+}, 200);
+
+searchInput.addEventListener('input', debouncedSearch);
+searchMobile.addEventListener('input', debouncedSearch);
+
+
+
+
+
+
+  
+// 1. Akhri count kaydsan oo haduu null yahay -> 0 ka dhig
+let count = parseInt(localStorage.getItem("keyd")) || 0;
+
+
+// 2. Update dhammaan cart-count-yada marka page la furo
+function updateCart() {
+  document.querySelectorAll(".cart-count").forEach(el => {
+    el.textContent = count;
+  });
+
+  const mobileCart = document.getElementById("cart-count");
+  if (mobileCart) mobileCart.textContent = count;
+}
+
+updateCart();
+
+
+// 3. Add to cart button event
+document.querySelectorAll(".add").forEach(btn => {
+  btn.addEventListener("click", () => {
+    
+    count++; // kordhi
+    localStorage.setItem("keyd", count); // kaydi
+    updateCart(); // dib u cusbooneysii
+    
+  });
+});
+
+
+
+   
+
+</script>
+
+
+
+<script>
+ function addToCart(bookName){
+
+  const toast = document.getElementById("toast");
+
+  // Toast
+  toast.innerText = "Buugga waa lagu daray: " + bookName;
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 1200);
+
+  // WhatsApp (popup block ma jiro)
+  const message = `Asc: waxaan rabaa buugga ${bookName}`;
+  const waUrl = `https://wa.me/252619127978?text=${encodeURIComponent(message)}`;
+
+  window.open(waUrl, "_blank");
+}
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Book Reader</title>
+<style>
+body{font-family:Arial;margin:0}
+iframe{border:none}
+</style>
+</head>
+<body>
+
+
+<iframe id="book" width="100%" height="600"></iframe>
+
+<script>
+const user = JSON.parse(localStorage.getItem("currentUser"));
+
+if(!user){
+  window.location.href="singINform.html";
+}else{
+  document.getElementById("book").src="buugaagta/" +user.book;
+}
+</script>
+
+</body>
+</html>

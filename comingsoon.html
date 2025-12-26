@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coming Soon | Website-kaaga</title>
+<style>
+/* ====== GLOBAL ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: rgba(0,0,0,0.5) url("./photos/2-wow.jpg") center/cover no-repeat;
+  background-attachment: fixed;
+  color: white;
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: fixed;
+  top: 0; left: 0; right:0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: rgba(0,0,0,0.6);
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logooos {
+  width: 300px;
+  object-fit: contain;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-right #search {
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  width: 180px;
+  
+}
+
+.nav-links a:hover{
+  color: #00c3ff;
+  transition:  0.3s ease;
+}
+.nav-right .signin, .nav-right  {
+display: inline-block;
+padding: 6px 12px;
+border-radius: 20px;
+border: none;
+background: #0077ff;
+color: white;
+cursor: pointer;
+transform: translateY(-2px); 
+transition: 0.3s ease;
+    
+}
+.cart-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #007bff;        /* Midabka blue sida sign-in */
+  color: white;
+  border-radius: 30px;        /* Rounded */
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 80;
+  transition: 0.3s ease;
+}
+
+.cart-btn:hover {
+  background: #005fcc;        /* Hover darker */
+  transform: translateY(-2px); 
+}
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+}
+
+.hamburger {
+    display: none; /* kaliya mobile-ka */
+  background: transparent;
+  color: rgb(248, 247, 247);
+  border: none;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5em;
+  cursor: pointer;
+  
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100vh;
+  background: rgba(0,0,0,0.95);
+  
+  flex-direction: column;
+  padding-top: 60px;
+  transform: translateX(100%); 
+  transition: transform 0.3s ease;
+  z-index: 9999;
+}
+
+.mobile-menu.open {
+  transform: translateX(0); 
+}
+
+
+.mobile-menu.open { width: 250px; }
+
+.mobile-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-links a {
+  padding: 12px 18px;
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+#search-mobile {
+  width: 85%;
+  margin: 10px auto;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: none;
+  display: block;
+}
+
+.mobile-links .signin, .mobile-links .cart {
+  width: 85%;
+  margin: 8px auto;
+  padding: 8px 12px;
+  border-radius: 25px;
+  background: #0077ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.close-menu {
+  position: absolute;
+  top: 10px; right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 50px;
+  padding: 0 20px;
+}
+
+h1 { font-size: 2.5rem; margin-bottom: 10px; }
+p { font-size: 1rem; margin-bottom: 20px; }
+
+/* ===== COUNTDOWN ===== */
+.countdown {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.time-box {
+  background: white;
+  color: #2E58EC;
+  padding: 15px 20px;
+  border-radius: 12px;
+  min-width: 70px;
+  font-weight: bold;
+}
+
+.time-box .num { font-size: 1.8rem; }
+.time-box .label { font-size: 0.8rem; text-transform: uppercase; color: #32407b; }
+
+/* ===== SUBSCRIBE FORM ===== */
+form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+form input[type="email"] {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  width: 220px;
+}
+
+form button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  background: #2E58EC;
+  color: white;
+  cursor: pointer;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #fff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .nav-links, .nav-right { display: none; }
+.hamburger { display: block; width: 200%; text-align: left; padding-left: 70px; }
+
+  .book-card { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-container">
+    <a href="index.html"><img class="logooos" src="./my logo/Untitled-99.png" alt="Logo"></a>
+    <button class="hamburger">☰Menu</button>
+  </div>
+  <div class="nav-right">
+    <input type="text" id="search" placeholder="Search books...">
+    <a href="singINform.html"><button class="signin">🔑 Sign In</button></a>
+  <!--<a href="#" class="cart-btn">🛒 Cart (<span class="cart-count">0</span>)</a>-->
+
+    </header>
+  </div>
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="books.html">Books</a>
+    <a href="it books.html">Info-Technology</a>
+    <a href="about us.html">About Me</a>
+    <a href="comingsoon.html">Coming soon...</a>
+    <a href="#">Others</a>
+    <a href="#">Help</a>
+  </nav>
+
+
+<div class="mobile-menu">
+  <button class="close-menu">×</button>
+  <div class="mobile-links">
+    <a href="index.html">Home</a>
+    <a href="books.html">Books</a>
+    <a href="it books.html">Info-Technology</a>
+    <a href="about us.html">About Me</a>
+    <a href="#">Coming soon...</a>
+    <a href="#">Others</a>
+    <a href="#">Help</a>
+    <input type="text" id="search-mobile" placeholder="Search books...">
+ <a href="singINform.html">  <button class="signin">🔑 Sign In</button></a>
+    <button class="cart">🛒 Cart (<span id="cart-count">0</span>)</button>
+  </div>
+</div>
+
+<div class="main-content">
+  <h1>🚀 Coming Soon</h1>
+  <p>Waxaan soo wadnaa wax xiiso leh — la soco!</p>
+
+  <div class="countdown">
+    <div class="time-box"><span class="num" id="days">0</span><span class="label">Maalmood</span></div>
+    <div class="time-box"><span class="num" id="hours">0</span><span class="label">Saac</span></div>
+    <div class="time-box"><span class="num" id="minutes">0</span><span class="label">Daqiiqo</span></div>
+    <div class="time-box"><span class="num" id="seconds">0</span><span class="label">Ilbiriqsi</span></div>
+  </div>
+
+  <form onsubmit="return subscribe(event)">
+    <input type="email" id="email" placeholder="Email-kaaga" required>
+    <button type="submit">Subscribe</button>
+  </form>
+  <p id="msg" style="margin-top:10px; color:#2E58EC;"></p>
+</div>
+
+<footer>
+  © 2025 Website-kaaga | All rights reserved.
+</footer>
+
+<script>
+// ===== COUNTDOWN =====
+const targetDate = new Date("Dec 31, 2025 00:00:00").getTime();
+setInterval(() => {
+  const now = new Date().getTime();
+  const distance = targetDate - now;
+  document.getElementById("days").innerText = Math.floor(distance / (1000*60*60*24));
+  document.getElementById("hours").innerText = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+  document.getElementById("minutes").innerText = Math.floor((distance%(1000*60*60))/(1000*60));
+  document.getElementById("seconds").innerText = Math.floor((distance%(1000*60))/1000);
+},1000);
+
+// ===== SUBSCRIBE =====
+function subscribe(e){
+  e.preventDefault();
+  const email = document.getElementById("email").value.trim();
+  const msg = document.getElementById("msg");
+  if(!email || !/^[^@]+@[^@]+\.[^@]+$/.test(email)){
+    msg.textContent = "Fadlan qor email sax ah.";
+    return false;
+  }
+  msg.textContent = "Mahadsanid! Waxaan ku ogeysiin doonaa marka aan furno 🎉";
+  e.target.reset();
+  return false;
+}
+
+// ===== HAMBURGER MENU =====
+const hamburger = document.querySelector(".hamburger");
+const mobileMenu = document.querySelector(".mobile-menu");
+const closeBtn = document.querySelector(".close-menu");
+
+hamburger.addEventListener("click", ()=>{ mobileMenu.classList.toggle("open"); });
+closeBtn.addEventListener("click", ()=>{ mobileMenu.classList.remove("open"); });
+
+
+
+
+let count = parseInt(localStorage.getItem("keyd")) || 0;
+
+
+// 2. Update dhammaan cart-count-yada marka page la furo
+function updateCart() {
+  document.querySelectorAll(".cart-count").forEach(el => {
+    el.textContent = count;
+  });
+
+  const mobileCart = document.getElementById("cart-count");
+  if (mobileCart) mobileCart.textContent = count;
+}
+
+updateCart();
+
+
+// 3. Add to cart button event
+document.querySelectorAll(".add").forEach(btn => {
+  btn.addEventListener("click", () => {
+    
+    count++; // kordhi
+    localStorage.setItem("keyd", count); // kaydi
+    updateCart(); // dib u cusbooneysii
+    
+  });
+});
+</script>
+
+</body>
+</html>

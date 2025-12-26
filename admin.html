@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin Panel</title>
+<style>
+body{font-family:Arial;background:#f4f4f4;padding:20px}
+input,select,button{padding:8px;margin:5px}
+table{width:100%;border-collapse:collapse;margin-top:20px}
+th,td{border:1px solid #ccc;padding:8px}
+th{background:#eee}
+</style>
+</head>
+<body>
+
+<h2>Admin – Create User & Assign Book</h2>
+
+<input id="username" placeholder="Username">
+<input id="password" placeholder="Password" type="password">
+
+<select id="book">
+  <option value="">-- Dooro Buugga --</option>
+  <option value="ele-js.pdf">JavaScript</option>
+  <option value="the-python-book_compress.pdf">Python</option>
+  <option value="Terry Felke-Morris - Basics of Web Design_ HTML5 &_250620_094110.pdf">mastering HTML & CSS</option>
+  <option value="css.pdf"> CSS tutorials</option>
+  <option value="java_beginner_2005.pdf">JAVA for beginers</option>
+  <option value="Beginning Programming With Java For Dummies, 2nd Edition (2005).pdf">JAVA</option>
+  <option value="Machine Learning Q and AI (Sebastian Raschka, PhD) (Z-Library).pdf">machine learning & AI</option>
+  <option value="OOP in C++ Book_250618_081612.pdf">c++</option>
+  <option value="starting-out-with-visual-c-.pdf">c#</option>
+  <option value="teach_your_self_java_in_21_days.pdf">Java in 21 days</option>
+  <option value="sql-the-complete-reference-third-edition-sep-2009.pdf">SQL the completete refrence</option>
+  <option value="ullman_the_complete database system_book.pdf">database system</option>
+<option value="info tech assensials.pdf">info tech assensials</option>
+</select>
+
+<button onclick="createUser()">Create User</button>
+
+<h3>Users List</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Username</th>
+<th>Password</th>
+<th>Book</th>
+</tr>
+</thead>
+<tbody id="usersTable"></tbody>
+</table>
+
+<script>
+function createUser(){
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value.trim();
+  const book = document.getElementById("book").value;
+
+  if(!username || !password || !book){
+    alert("Fadlan dhammaan buuxi");
+    return;
+  }
+
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+
+  if(users.find(u => u.username === username)){
+    alert("User hore ayuu u jiraa");
+    return;
+  }
+
+  users.push({username,password,book});
+  localStorage.setItem("users",JSON.stringify(users));
+
+  document.getElementById("username").value="";
+  document.getElementById("password").value="";
+  document.getElementById("book").value="";
+
+  showUsers();
+}
+
+function showUsers(){
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const tbody = document.getElementById("usersTable");
+  tbody.innerHTML="";
+  users.forEach((u,i)=>{
+    tbody.innerHTML += `
+      <tr>
+        <td>${i+1}</td>
+        <td>${u.username}</td>
+        <td>${u.password}</td>
+        <td>${u.book}</td>
+      </tr>`;
+  });
+}
+
+showUsers();
+</script>
+
+</body>
+</html>

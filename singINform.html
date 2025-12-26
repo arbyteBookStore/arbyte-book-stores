@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Login</title>
+<style>
+  /* Reset some default styles */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #6b73ff, #000dff);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login-container {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 350px;
+    text-align: center;
+  }
+
+  h2 {
+    margin-bottom: 25px;
+    color: #333;
+    font-weight: 600;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+
+  input:focus {
+    border-color: #6b73ff;
+    box-shadow: 0 0 8px rgba(107, 115, 255, 0.5);
+    outline: none;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    background: #6b73ff;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background: #000dff;
+  }
+
+  .alert {
+    margin-top: 10px;
+    color: red;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+
+<div class="login-container">
+  <h2>User Login</h2>
+
+  <input id="user" placeholder="Username">
+  <input id="pass" type="password" placeholder="Password">
+  <button onclick="login()">Login</button>
+  <div class="alert" id="alert"></div>
+</div>
+
+<script>
+function login(){
+  const u = document.getElementById("user").value.trim();
+  const p = document.getElementById("pass").value.trim();
+  const alertDiv = document.getElementById("alert");
+
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+  const found = users.find(x => x.username === u && x.password === p);
+
+  if(found){
+    localStorage.setItem("currentUser", JSON.stringify(found));
+    window.location.href = "reader.html";
+  } else {
+    alertDiv.textContent = "Username ama Password ayaa khalad ah!";
+  }
+}
+</script>
+
+</body>
+</html>
